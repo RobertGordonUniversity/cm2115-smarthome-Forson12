@@ -1,5 +1,7 @@
 package uk.ac.rgu.cm2115;
 
+import uk.SmartApp;
+
 /*import java.io.IOException;
 
 import javafx.application.Application;
@@ -17,6 +19,10 @@ public class MainApp {
 
         // JavaFX launch code - we'll get to this later
         //launch();
+
+
+        SmartApp s1 = new SmartApp("off");
+         System.out.println(s1); 
     }
 
     /* Code below is for JavaFX - we'll get to this later in the module! */
@@ -57,6 +63,8 @@ public class MainApp {
         scene.setRoot(root);
     }
     */
+
+    //Testing SmartApp
 
 
 }
