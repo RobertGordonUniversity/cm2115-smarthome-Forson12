@@ -1,13 +1,16 @@
-package uk;
+package uk.ac.rgu;
 
 public class SmartApp {
     //Fields 
     public String mySwitch;
     
 
+    public void simpleMessage(){
+        System.out.println("Input Either (on/off)");
+    }
+    
     // Default Constructor method 
     public SmartApp(){
-        System.out.println("Input Either (on/off)");
         mySwitch = "not set"; 
     }
 

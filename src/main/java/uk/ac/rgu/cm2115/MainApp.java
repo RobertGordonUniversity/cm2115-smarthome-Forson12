@@ -1,6 +1,7 @@
 package uk.ac.rgu.cm2115;
 
-import uk.SmartApp;
+import uk.ac.rgu.Light;
+import uk.ac.rgu.SmartApp;
 
 /*import java.io.IOException;
 
@@ -20,9 +21,17 @@ public class MainApp {
         // JavaFX launch code - we'll get to this later
         //launch();
 
-
+        /* 
         SmartApp s1 = new SmartApp("off");
          System.out.println(s1); 
+        */ 
+
+
+        Light l1 = new Light("down");
+        l1.simpleMessage();
+        System.out.println(l1);
+        System.out.println();
+
     }
 
     /* Code below is for JavaFX - we'll get to this later in the module! */

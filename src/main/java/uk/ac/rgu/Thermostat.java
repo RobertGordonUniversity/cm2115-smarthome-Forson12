@@ -6,7 +6,6 @@ public class Thermostat {
 
     // Default Constructor method 
     public Thermostat(){
-        System.out.println("Input Either (up/down)");
         myTurn = "not set"; 
     }
 
