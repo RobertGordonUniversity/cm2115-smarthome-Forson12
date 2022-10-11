@@ -1,4 +1,4 @@
-package uk.ac.rgu.cm2115;
+package uk.ac.rgu.cm2115; 
 
 import uk.ac.rgu.Light;
 import uk.ac.rgu.SmartApp;
@@ -26,11 +26,13 @@ public class MainApp {
          System.out.println(s1); 
         */ 
 
-
-        Light l1 = new Light("down");
-        l1.simpleMessage();
-        System.out.println(l1);
-        System.out.println();
+        /*
+            Light l1 = new Light("down");
+            l1.simpleMessage();
+            System.out.println(l1);
+            System.out.println();
+        */
+        
 
     }
 
@@ -74,6 +76,8 @@ public class MainApp {
     */
 
     //Testing SmartApp
+
+
 
 
 }
