@@ -1,37 +1,52 @@
-package uk.ac.rgu;
+package uk.ac.rgu.cm2115;
 
-public class Thermostat {
+import uk.ac.rgu.cm2115.devices.Devices;
+
+public class Thermostat extends Devices{
+    public Thermostat(String aname) {
+        super(aname);
+        //
+    }
+
     public String myTurn;
     
 
-    // Default Constructor method 
-    public Thermostat(){
-        myTurn = "not set"; 
+    public void turnOn(){
+        System.out.println(getName() + " Is" + " Turned On");
     }
 
-    //Parametric Constructor 
-    public Thermostat(String aMyTurn){
-        myTurn = aMyTurn; 
+    public void turnOff(){
+        System.out.println(getName() + " Is" + " Turned Off");
     }
 
-    //Getter Mathods 
-    public String getMyTurn(){
-        return myTurn; 
-    }
+    // // Default Constructor method 
+    // public Thermostat(){
+    //     myTurn = "not set"; 
+    // }
 
-    //Setters 
-    /*
-    public void setMyTurn(String myTurn){
-        myTurn = aMyTurn;
-    }
-    */
+    // //Parametric Constructor 
+    // public Thermostat(String aMyTurn){
+    //     myTurn = aMyTurn; 
+    // }
 
-    // Other methods 
+    // //Getter Mathods 
+    // public String getMyTurn(){
+    //     return myTurn; 
+    // }
 
-    // ToString Method 
-    public String toString(){
-        String output = "";
-        output += "The Thermostat is " + getMyTurn(); 
-        return output; 
-    }
+    // //Setters 
+    // /*
+    // public void setMyTurn(String myTurn){
+    //     myTurn = aMyTurn;
+    // }
+    // */
+
+    // // Other methods 
+
+    // // ToString Method 
+    // public String toString(){
+    //     String output = "";
+    //     output += "The Thermostat is " + getMyTurn(); 
+    //     return output; 
+    // }
 }

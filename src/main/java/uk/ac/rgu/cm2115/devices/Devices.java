@@ -8,9 +8,17 @@ public abstract class Devices {
         name = aname; 
     }
     
+    
     public String getName() {
         return name;
         
     }
+    
 
+    // ToString Method 
+    public final String toString(){
+        String output = "";
+        output += getName() +" " + getClass().getSimpleName(); 
+        return output; 
+    }
 }

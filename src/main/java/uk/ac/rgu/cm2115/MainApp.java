@@ -1,20 +1,22 @@
 package uk.ac.rgu.cm2115; 
 
-import uk.ac.rgu.Light;
-import uk.ac.rgu.SmartApp;
+//import uk.ac.rgu.Light;
+//import uk.ac.rgu.SmartApp;
 
-/*import java.io.IOException;
+import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;*/
+//import javafx.scene.effect.Light;
+import javafx.stage.Stage;
+import uk.ac.rgu.cm2115.devices.Devices;
 
 /**
  * JavaFX App
  */
-public class MainApp {
+public class MainApp extends Application {
 
     public static void main(String[] args) {
 
@@ -33,17 +35,32 @@ public class MainApp {
             System.out.println();
         */
         
+        // Light L1 = new Light("Living Room"); 
+        // L1.swichOn();
+
+        Devices[] devices = new Devices[5]; 
+        devices[0] = new Light("Living room");
+        devices[1] = new SmartPlug("Kettle");
+        devices[2] = new Thermostat("Wifi");
+        devices[3] = new Light("Bed room");
+        devices[4] = new SmartPlug("Tv");
+
+        for (int i =0; i < devices.length; i++){
+            System.out.println(devices[i]);
+        }
+
+
 
     }
 
     /* Code below is for JavaFX - we'll get to this later in the module! */
 
-    /* 
+    
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("SmartHomeMain"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -73,7 +90,7 @@ public class MainApp {
 
         scene.setRoot(root);
     }
-    */
+    
 
     //Testing SmartApp
 

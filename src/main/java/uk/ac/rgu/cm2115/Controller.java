@@ -1,8 +1,7 @@
-package uk.ac.rgu.cm2115.devices;
+package uk.ac.rgu.cm2115;
 
-public class Controller {
+public class Controller<T> {
     public void setModel(T model){
 
     }
-    
 }

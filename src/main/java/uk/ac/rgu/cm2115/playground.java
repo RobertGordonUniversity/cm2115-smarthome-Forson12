@@ -1,4 +1,4 @@
-package uk.ac.rgu;
+package uk.ac.rgu.cm2115;
 
 public class playground {
     
