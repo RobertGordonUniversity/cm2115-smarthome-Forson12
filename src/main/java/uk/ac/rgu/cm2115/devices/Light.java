@@ -1,8 +1,6 @@
-package uk.ac.rgu.cm2115;
+package uk.ac.rgu.cm2115.devices;
 
-import uk.ac.rgu.cm2115.devices.Devices;
-
-public class Light extends Devices{
+public class Light extends Devices implements Switchable, Dimmable{
 
     public Light(String aname) {
         super(aname);
@@ -11,20 +9,33 @@ public class Light extends Devices{
 
     public String myLight; 
 
+
+    @Override
     public void swichOn(){
         System.out.print(getName() + " Light" + " Switch On");
     }
 
+    @Override
     public void swichOff(){
         System.out.print(getName() + " Light" + " Switch Off");
     }
 
-    public void dimUP(){
+    @Override
+    public void dimUp(){
         System.out.print(getName() + " Dim On");
     }
 
+    @Override
     public void dimDown(){
         System.out.print(getName() + " Dim Off");
     }
 
+   
+    public static class color(){
+        
+
+    }
+
 }
+
+

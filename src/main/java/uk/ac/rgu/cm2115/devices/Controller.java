@@ -1,4 +1,4 @@
-package uk.ac.rgu.cm2115;
+package uk.ac.rgu.cm2115.devices;
 
 public abstract class Controller<T> {
     

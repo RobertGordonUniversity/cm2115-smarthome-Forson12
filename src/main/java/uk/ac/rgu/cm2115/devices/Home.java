@@ -1,6 +1,4 @@
-package uk.ac;
-
-import uk.ac.rgu.cm2115.devices.Devices;
+package uk.ac.rgu.cm2115.devices;
 
 /**
  * Class to act as a hub for the smarthome
@@ -13,10 +11,10 @@ public class Home  {
         devices = new Devices[4]; 
 
     }
-    public void addDevice(Devices Device){
+    public void addDevice(Devices device){
         for(int i=0; i<this.devices.length; i++){
             if(devices[i] == null){
-                devices[i] = Device; 
+                devices[i] = device; 
                 break; 
             }
         }

@@ -11,7 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 //import javafx.scene.effect.Light;
 import javafx.stage.Stage;
+import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
+import uk.ac.rgu.cm2115.devices.Home;
+import uk.ac.rgu.cm2115.devices.Light;
+import uk.ac.rgu.cm2115.devices.SmartPlug;
+import uk.ac.rgu.cm2115.devices.Switchable;
+import uk.ac.rgu.cm2115.devices.Thermostat;
 
 /**
  * JavaFX App
@@ -37,18 +43,25 @@ public class MainApp extends Application {
         // Light L1 = new Light("Living Room"); 
         // L1.swichOn();
 
-        Devices[] devices = new Devices[5]; 
-        devices[0] = new Light("Living room");
-        devices[1] = new SmartPlug("Kettle");
-        devices[2] = new Thermostat("Wifi");
-        devices[3] = new Light("Bed room");
-        devices[4] = new SmartPlug("Tv");
+        Switchable[] turnOn = new Switchable[2]; 
+        turnOn[0] = new Light("Kitchen Light "); 
+        turnOn[1] = new SmartPlug("Wifi ");
+        //turnOn[1].swichOn();
 
-        for (int i =0; i < devices.length; i++){
-            System.out.println(devices[i]);
-        }
+        
 
+        // Devices[] devices = new Devices[5]; 
+        // devices[0] = new Light("Living room");
+        // devices[1] = new SmartPlug("Kettle");
+        // devices[2] = new Thermostat("Wifi");
+        // devices[3] = new Light("Bed room");
+        // devices[4] = new SmartPlug("Tv");
 
+        // for (int i =0; i < devices.length; i++){
+        //     System.out.println(devices[i]);
+        // }
+
+ 
 
     }
 
@@ -62,6 +75,12 @@ public class MainApp extends Application {
         scene = new Scene(loadFXML("SmartHomeMain"), 640, 480);
         stage.setScene(scene);
         stage.show();
+
+        Home home = new Home(); 
+        home.addDevice(new Light("Living room"));
+        home.addDevice(new SmartPlug("Kettle"));
+        home.addDevice(new Thermostat("Whole house"));
+        setScene("SmartHomeMain", home);
     }
 
     static void setRoot(String fxml) throws IOException {

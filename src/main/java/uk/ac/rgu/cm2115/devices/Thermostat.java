@@ -1,6 +1,4 @@
-package uk.ac.rgu.cm2115;
-
-import uk.ac.rgu.cm2115.devices.Devices;
+package uk.ac.rgu.cm2115.devices;
 
 public class Thermostat extends Devices{
     public Thermostat(String aname) {

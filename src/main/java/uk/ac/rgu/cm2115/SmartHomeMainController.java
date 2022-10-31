@@ -1,9 +1,10 @@
 package uk.ac.rgu.cm2115;
 
-import uk.ac.Home;
-import uk.ac.rgu.cm2115.devices.Devices;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import uk.ac.rgu.cm2115.devices.Controller;
+import uk.ac.rgu.cm2115.devices.Devices;
+import uk.ac.rgu.cm2115.devices.Home;
 
 public class SmartHomeMainController extends Controller<Home>{
 

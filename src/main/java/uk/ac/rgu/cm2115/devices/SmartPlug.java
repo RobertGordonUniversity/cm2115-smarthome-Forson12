@@ -1,8 +1,6 @@
-package uk.ac.rgu.cm2115;
+package uk.ac.rgu.cm2115.devices;
 
-import uk.ac.rgu.cm2115.devices.Devices;
-
-public class SmartPlug extends Devices{
+public class SmartPlug extends Devices implements Switchable{
     //Fields 
     //public String mySwitch;
     
@@ -15,11 +13,13 @@ public class SmartPlug extends Devices{
         super(aname);
         //T
     }
-
+    
+    @Override
     public void swichOn(){
         System.out.print(getName() + "Light" + " Switch On");
     }
-
+    
+    @Override
     public void swichOff(){
         System.out.print(getName() + "Light" + " Switch Off");
     }
