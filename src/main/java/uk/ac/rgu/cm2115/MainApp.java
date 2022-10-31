@@ -28,12 +28,11 @@ public class MainApp extends Application {
          System.out.println(s1); 
         */ 
 
-        /*
-            Light l1 = new Light("down");
-            l1.simpleMessage();
-            System.out.println(l1);
-            System.out.println();
-        */
+        
+            //Light l1 = new Light("down");
+            //l1.simpleMessage();
+            //System.out.println(l1);
+        
         
         // Light L1 = new Light("Living Room"); 
         // L1.swichOn();

@@ -23,7 +23,7 @@ public class Home  {
 
     }
     // getter Method 
-    public Devices[] getDevice(){
+    public Devices[] getDevices(){
         return this.devices; 
     } 
 
