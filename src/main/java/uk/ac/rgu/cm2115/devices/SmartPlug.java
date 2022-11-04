@@ -16,12 +16,12 @@ public class SmartPlug extends Devices implements Switchable{
     
     @Override
     public void swichOn(){
-        System.out.print(getName() + "Light" + " Switch On");
+        System.out.print(getName() + " is " + " Switch On");
     }
     
     @Override
     public void swichOff(){
-        System.out.print(getName() + "Light" + " Switch Off");
+        System.out.print(getName() + " is " + " Switch Off");
     }
     
     // Default Constructor method 

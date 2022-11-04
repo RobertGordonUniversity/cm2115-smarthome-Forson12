@@ -9,14 +9,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 //import javafx.scene.effect.Light;
 import javafx.stage.Stage;
 import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
 import uk.ac.rgu.cm2115.devices.Home;
 import uk.ac.rgu.cm2115.devices.Light;
+import uk.ac.rgu.cm2115.devices.LightStatus;
 import uk.ac.rgu.cm2115.devices.SmartPlug;
 import uk.ac.rgu.cm2115.devices.Switchable;
+//import uk.ac.rgu.cm2115.devices.Light.Color; 
 import uk.ac.rgu.cm2115.devices.Thermostat;
 
 /**
@@ -27,7 +30,10 @@ public class MainApp extends Application {
     public static void main(String[] args) {
 
         // JavaFX launch code - we'll get to this later
-        //launch();
+        //launch(); 
+
+        // Switchable kobi = new SmartPlug("Wifi"); 
+        // kobi.swichOn();
 
         /* 
         SmartApp s1 = new SmartApp("off");
@@ -43,11 +49,19 @@ public class MainApp extends Application {
         // Light L1 = new Light("Living Room"); 
         // L1.swichOn();
 
-        Switchable[] turnOn = new Switchable[2]; 
-        turnOn[0] = new Light("Kitchen Light "); 
-        turnOn[1] = new SmartPlug("Wifi ");
+        // Lab 4 Testin 
+        // Switchable[] turnOn = new Switchable[2]; 
+        // turnOn[0] = new Light("Kitchen Light "); 
+        // turnOn[1] = new SmartPlug("Wifi ");
         //turnOn[1].swichOn();
 
+
+        // Lab 5 Testing 
+        // Light light = new Light("Living Room", 255, 0, 0); 
+        // System.out.println(light);
+        // light.swichOn();
+        LightStatus Ls =  LightStatus.ON; 
+        System.out.println(Ls.label);
         
 
         // Devices[] devices = new Devices[5]; 
@@ -77,7 +91,7 @@ public class MainApp extends Application {
         stage.show();
 
         Home home = new Home(); 
-        home.addDevice(new Light("Living room"));
+        home.addDevice(new Light("Living room", 255,0,0));
         home.addDevice(new SmartPlug("Kettle"));
         home.addDevice(new Thermostat("Whole house"));
         setScene("SmartHomeMain", home);

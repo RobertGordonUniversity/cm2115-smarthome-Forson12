@@ -9,7 +9,8 @@ public abstract class Devices {
     }
     
     
-    public String getName() {
+    
+    public final String getName() {
         return name;
         
     }
