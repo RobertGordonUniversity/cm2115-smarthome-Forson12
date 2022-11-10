@@ -21,6 +21,7 @@ import uk.ac.rgu.cm2115.devices.SmartPlug;
 import uk.ac.rgu.cm2115.devices.Switchable;
 //import uk.ac.rgu.cm2115.devices.Light.Color; 
 import uk.ac.rgu.cm2115.devices.Thermostat;
+import uk.ac.rgu.cm2115.devices.TurnStatus;
 
 /**
  * JavaFX App
@@ -30,7 +31,7 @@ public class MainApp extends Application {
     public static void main(String[] args) {
 
         // JavaFX launch code - we'll get to this later
-        //launch(); 
+        launch(); 
 
         // Switchable kobi = new SmartPlug("Wifi"); 
         // kobi.swichOn();
@@ -58,12 +59,20 @@ public class MainApp extends Application {
 
         // Lab 5 Testing 
         // Light light = new Light("Living Room", 255, 0, 0); 
-        // System.out.println(light);
+        // System.out.println(light.Color);
         // light.swichOn();
-        LightStatus Ls =  LightStatus.ON; 
-        System.out.println(Ls.label);
-        
+        //light.getMyColor(); 
 
+        //LightStatus Ls =  LightStatus.ON; 
+        //System.out.println(Ls.label);
+        // SmartPlug S1 = new SmartPlug("Wifi"); 
+        // S1.swichOn();
+        //  TurnStatus T1 = TurnStatus.ON; 
+        // System.out.println(T1.label);
+
+       
+        
+        //Lab 3 Test and tryout 
         // Devices[] devices = new Devices[5]; 
         // devices[0] = new Light("Living room");
         // devices[1] = new SmartPlug("Kettle");
@@ -91,10 +100,28 @@ public class MainApp extends Application {
         stage.show();
 
         Home home = new Home(); 
+
+        Light light = new Light("Living Room", 0, 0, 0);
+        SmartPlug plug = new SmartPlug("Kettle");
+        Thermostat thrm = new Thermostat("Whole house");
+
+        home.addDevice(light);
+        home.addDevice(plug);
+        home.addDevice(thrm);
+
+
+        home.addCommand("Switch on Light", light :: switchOn);
+        home.addCommand("Switch on Kettle", plug :: switchOn);
+        home.addCommand("Switch on Kettle", thrm :: turnOn);
+
+        home.runCommand("Switch on Light");
+        
+        // for Lab 3 (Add the various devices to listview)
         home.addDevice(new Light("Living room", 255,0,0));
         home.addDevice(new SmartPlug("Kettle"));
         home.addDevice(new Thermostat("Whole house"));
         setScene("SmartHomeMain", home);
+
     }
 
     static void setRoot(String fxml) throws IOException {

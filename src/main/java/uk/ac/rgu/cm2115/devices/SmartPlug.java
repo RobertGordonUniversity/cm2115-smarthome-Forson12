@@ -1,6 +1,6 @@
 package uk.ac.rgu.cm2115.devices;
 
-public class SmartPlug extends Devices implements Switchable{
+public class SmartPlug extends Devices<LightStatus> implements Switchable{
     //Fields 
     //public String mySwitch;
     
@@ -9,19 +9,22 @@ public class SmartPlug extends Devices implements Switchable{
     //     System.out.println("Input Either (on/off)");
     // }
     
+   // public LightStatus status;
+
     public SmartPlug(String aname) {
         super(aname);
+        this.Status = LightStatus.ON;
         //T
     }
     
     @Override
-    public void swichOn(){
-        System.out.print(getName() + " is " + " Switch On");
+    public void switchOn(){
+        System.out.print(getName() + " is " + " Switched On," + " Status: " + LightStatus.ON);
     }
     
     @Override
-    public void swichOff(){
-        System.out.print(getName() + " is " + " Switch Off");
+    public void switchOff(){
+        System.out.print(getName() + " is " + " Switched Off, " + " Status: " + LightStatus.OFF);
     }
     
     // Default Constructor method 

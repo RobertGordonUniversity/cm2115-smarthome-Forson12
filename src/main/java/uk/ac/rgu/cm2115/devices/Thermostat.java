@@ -1,20 +1,22 @@
 package uk.ac.rgu.cm2115.devices;
 
-public class Thermostat extends Devices{
-    public Thermostat(String aname) {
-        super(aname);
-        //
-    }
+public class Thermostat extends Devices<TurnStatus> {
 
     public String myTurn;
+    //public TurnStatus status; 
+
+    public Thermostat(String aname) {
+        super(aname);
+        this.Status = TurnStatus.OFF; 
+    }
     
 
     public void turnOn(){
-        System.out.println(getName() + " Is" + " Turned On");
+        System.out.println(getName() + " Is" + " Turned On, " + " Status: " + TurnStatus.ON);
     }
 
     public void turnOff(){
-        System.out.println(getName() + " Is" + " Turned Off");
+        System.out.println(getName() + " Is" + " Turned Off," + " Status: " + TurnStatus.ON);
     }
 
     // // Default Constructor method 

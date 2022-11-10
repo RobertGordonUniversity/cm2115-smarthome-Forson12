@@ -2,7 +2,7 @@ package uk.ac.rgu.cm2115.devices;
 
 import javafx.scene.paint.Color;
 
-public class Light extends Devices implements Switchable, Dimmable{
+public class Light extends Devices<LightStatus> implements Switchable, Dimmable{
 
     // public Light(String aname) {
     //     super(aname);
@@ -11,14 +11,14 @@ public class Light extends Devices implements Switchable, Dimmable{
 
     public String myLight; 
     public Color Color; 
-    public LightStatus status; 
+    //public LightStatus status; 
 
     
     //Color constructor 
     public Light(String aname, int r, int g, int b) {
         super(aname);
         this.Color = new  Color(r, g, b);
-        this.status = LightStatus.ON; 
+        this.Status = LightStatus.ON; 
     }
     
     // Setter Methods
@@ -49,23 +49,23 @@ public class Light extends Devices implements Switchable, Dimmable{
 
 
     @Override
-    public void swichOn(){
-        System.out.print(getName() + " Light" + " is Switch On, " + "Status " + LightStatus.ON);
+    public void switchOn(){
+        System.out.print(getName() + " Light" + " is Switch On, " + "Status: " + LightStatus.ON);
     }
 
     @Override
-    public void swichOff(){
-        System.out.print(getName() + " Light" + " Switch Off" + "Status " + LightStatus.OFF);
+    public void switchOff(){
+        System.out.print(getName() + " Light" + " Switch Off" + "Status: " + LightStatus.OFF);
     }
 
     @Override
     public void dimUp(){
-        System.out.print(getName() + " Dim On" + "Status " + LightStatus.DIMMED);
+        System.out.print(getName() + " Dim On" + "Status: " + LightStatus.DIMMED);
     }
 
     @Override
     public void dimDown(){
-        System.out.print(getName() + " Dim Off" + "Status " + LightStatus.DIMMED);
+        System.out.print(getName() + " Dim Off" + "Status: " + LightStatus.DIMMED);
     }
 
         
