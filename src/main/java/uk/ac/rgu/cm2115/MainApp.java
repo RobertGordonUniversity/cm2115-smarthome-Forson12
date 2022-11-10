@@ -112,14 +112,15 @@ public class MainApp extends Application {
 
         home.addCommand("Switch on Light", light :: switchOn);
         home.addCommand("Switch on Kettle", plug :: switchOn);
-        home.addCommand("Switch on Kettle", thrm :: turnOn);
+        home.addCommand("Switch on Thermostat", thrm :: turnOn);
 
         home.runCommand("Switch on Light");
         
         // for Lab 3 (Add the various devices to listview)
-        home.addDevice(new Light("Living room", 255,0,0));
-        home.addDevice(new SmartPlug("Kettle"));
-        home.addDevice(new Thermostat("Whole house"));
+        // home.addDevice(new Light("Living room", 255,0,0));
+        // home.addDevice(new SmartPlug("Kettle"));
+        // home.addDevice(new Thermostat("Whole house"));
+
         setScene("SmartHomeMain", home);
 
     }

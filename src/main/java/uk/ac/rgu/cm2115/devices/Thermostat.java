@@ -7,7 +7,7 @@ public class Thermostat extends Devices<TurnStatus> {
 
     public Thermostat(String aname) {
         super(aname);
-        this.Status = TurnStatus.OFF; 
+        this.Status = TurnStatus.ON; 
     }
     
 
