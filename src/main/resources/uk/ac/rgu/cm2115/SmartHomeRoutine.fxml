@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rgu.cm2115.SmartHomeRoutineController">
+   <children>
+      <ListView fx:id="lstCommands" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="txtRoutineName" layoutX="14.0" layoutY="273.0" promptText="Routine name..." />
+      <Button fx:id="btnAddToRoutine" layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnAddToRoutineClick" text="Add to routine" />
+      <ListView fx:id="lstRoutine" layoutX="224.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btnRemoveFromRoutine" layoutX="224.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnRemoveFromRoutineClick" text="Remove from routine" />
+      <Button fx:id="btnSaveRoutine" layoutX="187.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnSaveRoutineClick" text="Save routine" />
+   </children>
+</AnchorPane>

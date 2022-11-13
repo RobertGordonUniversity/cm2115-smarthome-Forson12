@@ -1,5 +1,7 @@
 package uk.ac.rgu.cm2115;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +22,8 @@ public class SmartHomeMainController extends Controller<Home>{
     private Label lblStatus;
     @FXML
     private HBox hboxCommands; 
+    @FXML 
+    private Button btnCreateRoutine; 
 
     //setModel(); 
     @FXML
@@ -61,19 +65,14 @@ public class SmartHomeMainController extends Controller<Home>{
         this.lblStatus.setText(newDevices.getStatus().toString());
     }
 
+    @FXML 
+    private void btnCreateRoutineClick() throws IOException{
+        MainApp.setScene("SmartHomeRoutine", this.model);
+
+    }
+
 
 }
-
-//public class SmartHomeMainController extends Controller<Home>{
-    
-
-//     this.model = model; 
-//     Devices[] devices = model.getDevices();
-//     for(int i=0;i<devices.length;i++){
-//         if(devices[i] != null){
-//             this.lstDevices.getItems().add(devices[i]);
-//         }
-//         }
 
 
     
