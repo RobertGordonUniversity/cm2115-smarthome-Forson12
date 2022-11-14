@@ -8,6 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import uk.ac.rgu.cm2115.commands.Command;
+import uk.ac.rgu.cm2115.commands.RoutineCommand;
 import uk.ac.rgu.cm2115.devices.Controller; 
 
 public class SmartHomeRoutineController extends Controller<Home>{
@@ -53,10 +54,11 @@ public class SmartHomeRoutineController extends Controller<Home>{
                 command.execute();
             });
 
-            this.lstCommands.getItems().addAll(commandNames); 
+            
             
             //this.hboxCommands.getChildren().add(commandButton); 
         }  
+        this.lstCommands.getItems().addAll(commandNames); 
         
     }
 
@@ -76,10 +78,44 @@ public class SmartHomeRoutineController extends Controller<Home>{
     }
 
     @FXML
-    private void btnSaveRoutineClick(){
+    private void btnSaveRoutineClick() throws IOException{
+        //Get text from text field
         String textEntered = txtRoutineName.getText().toString();
-        //textEntered += txtRoutineName;
-        System.out.println(textEntered);
+        //TODO: Check if null
+
+        //Create Command array
+        Command[] commands = new Command[lstRoutine.getItems().size()];
+        //Iterate over items in lstRoutine
+        for (String routines : lstRoutine.getItems()) {
+            RoutineCommand routineCommand = new RoutineCommand(commands);
+            model.addCommand(textEntered, routineCommand);
+        }
+        MainApp.setScene("SmartHomeMain", this.model);
+
+        // String textEntered = txtRoutineName.getText().toString();
+        // //textEntered += txtRoutineName;
+        // System.out.println(textEntered);
+        // //Command Arrays
+        // Command[] myCommand = new Command[lstRoutine.getItems().size()];
+
+        // // iterate through items in lstRoutine
+        // for(Command command : myCommand){
+        //     command.execute();
+
+        // }
+
+        // // for(String routine : lstRoutine.getItems()){
+        // //     Home.addCommand(routine, routine);
+        // // }
+
+        // for (int i = 0; i < lstRoutine.getItems().size(); i++) {
+        //     model.addCommand(textEntered, myCommand[i]);
+        // }
+        // //Add RoutineCommand
+        // RoutineCommand myRoutineCommand = new RoutineCommand(myCommand); 
+
+        // // Add the RoutineCommand object to the model
+        
         
     }
 
