@@ -50,22 +50,22 @@ public class Light extends Devices<LightStatus> implements Switchable, Dimmable{
 
     @Override
     public void switchOn(){
-        System.out.print(getName() + " Light" + " is Switch On, " + "Status: " + LightStatus.ON);
+        System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + LightStatus.ON + " ");
     }
 
     @Override
     public void switchOff(){
-        System.out.print(getName() + " Light" + " Switch Off" + "Status: " + LightStatus.OFF);
+        System.out.print(getName() + " Light " + " Switch Off" + " Status: " + LightStatus.OFF + " ");
     }
 
     @Override
     public void dimUp(){
-        System.out.print(getName() + " Dim On" + "Status: " + LightStatus.DIMMED);
+        System.out.print(getName() + " Dim On " + " Status: " + LightStatus.DIMMED + " ");
     }
 
     @Override
     public void dimDown(){
-        System.out.print(getName() + " Dim Off" + "Status: " + LightStatus.DIMMED);
+        System.out.print(getName() + " Dim Off " + " Status: " + LightStatus.DIMMED + " ");
     }
 
         

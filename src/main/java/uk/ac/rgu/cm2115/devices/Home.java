@@ -18,7 +18,7 @@ public class Home  {
         devices = new Devices[4]; 
 
     }
-    //Methods 
+    //addDevice Method 
     public void addDevice(Devices device){
         for(int i=0; i<this.devices.length; i++){
             if(devices[i] == null){
@@ -45,7 +45,6 @@ public class Home  {
         for(int i =0; i <this.commandNames.length; i++){
             if(this.commandNames[i].equalsIgnoreCase(name)){
                 return this.commands[i]; 
-
             }
         }
         return null; 

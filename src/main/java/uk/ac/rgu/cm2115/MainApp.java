@@ -111,7 +111,7 @@ public class MainApp extends Application {
 
 
         home.addCommand("Switch on Light", light :: switchOn);
-        home.addCommand("Switch on Kettle", plug :: switchOn);
+        home.addCommand("Switch off Kettle", plug :: switchOff);
         home.addCommand("Switch on Thermostat", thrm :: turnOn);
 
         home.runCommand("Switch on Light");

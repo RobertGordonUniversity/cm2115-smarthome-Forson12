@@ -43,19 +43,15 @@ public class SmartHomeRoutineController extends Controller<Home>{
         Command[] commands = this.model.getCommands();
 
         for(int i =0; i< commandNames.length; i++){
-            if(commandNames[i] == null){ 
+            if(commandNames[i] != null){ 
                 continue; 
             }
-
             Command command = commands[i]; 
             Button commandButton = new Button(commandNames[i]); 
 
             commandButton.setOnAction((e) ->{
                 command.execute();
             });
-
-            
-            
             //this.hboxCommands.getChildren().add(commandButton); 
         }  
         this.lstCommands.getItems().addAll(commandNames); 
@@ -67,7 +63,7 @@ public class SmartHomeRoutineController extends Controller<Home>{
     private void btnAddToRoutineClick() {
         //MainApp.setScene("SmartHomeRoutine", this.model);
         String selectString = this.lstCommands.getSelectionModel().getSelectedItem();
-        this.lstRoutine.getItems().add(selectString); 
+        this.lstRoutine.getItems().addAll(selectString); 
     }
 
     @FXML
@@ -80,15 +76,16 @@ public class SmartHomeRoutineController extends Controller<Home>{
     @FXML
     private void btnSaveRoutineClick() throws IOException{
         //Get text from text field
-        String textEntered = txtRoutineName.getText().toString();
+        String routineName = txtRoutineName.getText().toString();
         //TODO: Check if null
+        
 
         //Create Command array
         Command[] commands = new Command[lstRoutine.getItems().size()];
         //Iterate over items in lstRoutine
         for (String routines : lstRoutine.getItems()) {
             RoutineCommand routineCommand = new RoutineCommand(commands);
-            model.addCommand(textEntered, routineCommand);
+            model.addCommand(routineName, routineCommand);
         }
         MainApp.setScene("SmartHomeMain", this.model);
 

@@ -15,9 +15,9 @@ public class RoutineCommand implements Command{
 
         for(int i =0; i <this.commands.length; i++){
             if(commands[i] != null){
-                continue; 
+                commands[i].execute(); 
             }
-            commands[i].execute(); 
+             
         }
         
     }

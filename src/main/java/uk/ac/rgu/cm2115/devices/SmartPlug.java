@@ -19,12 +19,12 @@ public class SmartPlug extends Devices<LightStatus> implements Switchable{
     
     @Override
     public void switchOn(){
-        System.out.print(getName() + " is " + " Switched On," + " Status: " + LightStatus.ON);
+        System.out.print(getName() + " is " + " Switched On," + " Status: " + LightStatus.ON + " ");
     }
     
     @Override
     public void switchOff(){
-        System.out.print(getName() + " is " + " Switched Off, " + " Status: " + LightStatus.OFF);
+        System.out.print(getName() + " is " + " Switched Off, " + " Status: " + LightStatus.OFF + " ");
     }
     
     // Default Constructor method 

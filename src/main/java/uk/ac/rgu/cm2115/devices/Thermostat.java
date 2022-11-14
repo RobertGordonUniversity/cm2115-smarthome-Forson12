@@ -12,11 +12,11 @@ public class Thermostat extends Devices<TurnStatus> {
     
 
     public void turnOn(){
-        System.out.println(getName() + " Is" + " Turned On, " + " Status: " + TurnStatus.ON);
+        System.out.println(getName() + " Is" + " Turned On, " + " Status: " + TurnStatus.ON + " ");
     }
 
     public void turnOff(){
-        System.out.println(getName() + " Is" + " Turned Off," + " Status: " + TurnStatus.ON);
+        System.out.println(getName() + " Is" + " Turned Off," + " Status: " + TurnStatus.ON + " ");
     }
 
     // // Default Constructor method 

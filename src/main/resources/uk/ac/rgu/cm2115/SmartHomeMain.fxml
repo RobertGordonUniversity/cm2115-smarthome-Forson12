@@ -11,6 +11,6 @@
       <ListView fx:id="lstDevices" onMouseClicked="#deviceSelected" prefHeight="219.0" prefWidth="284.0" />
       <HBox fx:id="hboxCommands" layoutX="7.0" layoutY="219.0" prefHeight="100.0" prefWidth="591.0" />
       <Label fx:id="lblStatus" layoutX="320.0" layoutY="51.0" prefHeight="47.0" prefWidth="136.0" text="Label" />
-      <Button fx:id="btnCreateRoutine" layoutX="320.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnCreateRoutineClick" prefHeight="39.0" prefWidth="136.0" text="Create Routine" />
+      <Button fx:id="btnCreateRoutine" layoutX="320.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnCreateRoutineClick" prefHeight="39.0" prefWidth="136.0" text="Create New Routine" />
    </children>
 </AnchorPane>
