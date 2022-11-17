@@ -22,6 +22,8 @@ import uk.ac.rgu.cm2115.devices.Switchable;
 //import uk.ac.rgu.cm2115.devices.Light.Color; 
 import uk.ac.rgu.cm2115.devices.Thermostat;
 import uk.ac.rgu.cm2115.devices.TurnStatus;
+import uk.ac.rgu.cm2115.devices.amazon.AmazonDeviceFactory;
+import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
 
 /**
  * JavaFX App
@@ -99,22 +101,32 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Home home = new Home(); 
-
-        Light light = new Light("Living Room", 0, 0, 0);
-        SmartPlug plug = new SmartPlug("Kettle");
-        Thermostat thrm = new Thermostat("Whole house");
-
-        home.addDevice(light);
-        home.addDevice(plug);
-        home.addDevice(thrm);
-
+        /*Lab 6 B Abstract Factory */
+        DeviceFactory factory = new AmazonDeviceFactory(); 
+        Home home = new Home(factory); 
+        
+        Light light = home.addLight("Living Room"); 
+        SmartPlug plug = home.addSmartPlug("Kettle");
+        Thermostat thrm = home.addThermostat("Whole house"); 
 
         home.addCommand("Switch on Light", light :: switchOn);
-        home.addCommand("Switch off Kettle", plug :: switchOff);
-        home.addCommand("Switch on Thermostat", thrm :: turnOn);
+        home.addCommand("Switch off Kettle", plug :: switchOn);
+        home.addCommand("Switch on Thermostat", thrm :: turnOff);
 
-        home.runCommand("Switch on Light");
+        /*LAB 6 A */
+        // Light light = new Light("Living Room");
+        // SmartPlug plug = new SmartPlug("Kettle");
+        // Thermostat thrm = new Thermostat("Whole house");
+
+        // home.addDevice(light);
+        // home.addDevice(plug);
+        // home.addDevice(thrm);
+
+        // home.addCommand("Switch on light", light::switchOn);
+        // home.addCommand("Switch on kettle", plug::switchUp);
+        // home.addCommand("Turn up thermostat", thrm::turnUp);
+
+        //home.runCommand("Switch on Light");
         
         // for Lab 3 (Add the various devices to listview)
         // home.addDevice(new Light("Living room", 255,0,0));
@@ -150,11 +162,5 @@ public class MainApp extends Application {
 
         scene.setRoot(root);
     }
-    
-
-    //Testing SmartApp
-
-
-
 
 }

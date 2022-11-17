@@ -1,6 +1,6 @@
 package uk.ac.rgu.cm2115.devices;
 
-public class SmartPlug extends Devices<LightStatus> implements Switchable{
+public abstract class SmartPlug extends Devices<LightStatus> implements Switchable{
     //Fields 
     //public String mySwitch;
     

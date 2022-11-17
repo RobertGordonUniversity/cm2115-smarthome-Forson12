@@ -1,6 +1,6 @@
 package uk.ac.rgu.cm2115.devices;
 
-public class Thermostat extends Devices<TurnStatus> {
+public abstract class Thermostat extends Devices<TurnStatus> {
 
     public String myTurn;
     //public TurnStatus status; 

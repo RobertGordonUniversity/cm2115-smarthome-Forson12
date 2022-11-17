@@ -1,8 +1,8 @@
 package uk.ac.rgu.cm2115.devices;
 
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 
-public class Light extends Devices<LightStatus> implements Switchable, Dimmable{
+public abstract class Light extends Devices<LightStatus> implements Switchable, Dimmable{
 
     // public Light(String aname) {
     //     super(aname);
@@ -15,9 +15,9 @@ public class Light extends Devices<LightStatus> implements Switchable, Dimmable{
 
     
     //Color constructor 
-    public Light(String aname, int r, int g, int b) {
+    public Light(String aname /*int r, int g, int b*/ ) {
         super(aname);
-        this.Color = new  Color(r, g, b);
+        //this.Color = new  Color(r, g, b);
         this.Status = LightStatus.ON; 
     }
     
