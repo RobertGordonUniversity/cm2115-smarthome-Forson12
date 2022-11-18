@@ -19,12 +19,14 @@ public abstract class SmartPlug extends Devices<LightStatus> implements Switchab
     
     @Override
     public void switchOn(){
-        System.out.print(getName() + " is " + " Switched On," + " Status: " + LightStatus.ON + " ");
+        this.Status = LightStatus.ON;
+        System.out.print(getName() + " is " + " Switched On," + " Status: " + this.getStatus() + " ");
     }
     
     @Override
     public void switchOff(){
-        System.out.print(getName() + " is " + " Switched Off, " + " Status: " + LightStatus.OFF + " ");
+        this.Status = LightStatus.OFF;
+        System.out.print(getName() + " is " + " Switched Off, " + " Status: " + this.getStatus() + " ");
     }
     
     // Default Constructor method 

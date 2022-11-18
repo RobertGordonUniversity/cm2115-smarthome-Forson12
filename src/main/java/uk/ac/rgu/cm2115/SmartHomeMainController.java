@@ -50,8 +50,10 @@ public class SmartHomeMainController extends Controller<Home>{
             Command command = commands[i]; 
             Button commandButton = new Button(commandNames[i]); 
 
-            commandButton.setOnAction((e) ->{
+            commandButton.setOnAction((event) ->{
                 command.execute();
+                // Devices newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
+                // this.lblStatus.setText(newDevices.getStatus().toString());
             });
             this.hboxCommands.getChildren().add(commandButton); 
         }
@@ -62,6 +64,7 @@ public class SmartHomeMainController extends Controller<Home>{
     @FXML
     private void deviceSelected(){
         Devices newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
+        System.out.println(newDevices);
         this.lblStatus.setText(newDevices.getStatus().toString());
     }
 

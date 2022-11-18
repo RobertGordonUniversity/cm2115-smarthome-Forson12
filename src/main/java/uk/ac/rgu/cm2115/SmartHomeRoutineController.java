@@ -83,11 +83,19 @@ public class SmartHomeRoutineController extends Controller<Home>{
         //Create Command array
         Command[] commands = new Command[lstRoutine.getItems().size()];
         //Iterate over items in lstRoutine
-        for (String routines : lstRoutine.getItems()) {
-            RoutineCommand routineCommand = new RoutineCommand(commands);
-            model.addCommand(routineName, routineCommand);
+        // for (String routines : lstRoutine.getItems()) {
+        //     commands
+        // }
+
+        for(int i =0; i < commands.length; i++){
+            commands[i] = model.getCommand(lstRoutine.getItems().get(i)); 
         }
+        
+        RoutineCommand routineCommand = new RoutineCommand(commands);
+        model.addCommand(routineName, routineCommand);
+
         MainApp.setScene("SmartHomeMain", this.model);
+        
 
         // String textEntered = txtRoutineName.getText().toString();
         // //textEntered += txtRoutineName;

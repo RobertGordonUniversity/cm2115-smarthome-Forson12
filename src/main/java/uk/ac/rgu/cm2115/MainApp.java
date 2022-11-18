@@ -110,8 +110,8 @@ public class MainApp extends Application {
         Thermostat thrm = home.addThermostat("Whole house"); 
 
         home.addCommand("Switch on Light", light :: switchOn);
-        home.addCommand("Switch off Kettle", plug :: switchOn);
-        home.addCommand("Switch on Thermostat", thrm :: turnOff);
+        home.addCommand("Switch on Kettle", plug :: switchOn);
+        home.addCommand("Switch off Thermostat", thrm :: turnOff);
 
         /*LAB 6 A */
         // Light light = new Light("Living Room");

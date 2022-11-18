@@ -18,7 +18,7 @@ public abstract class Light extends Devices<LightStatus> implements Switchable, 
     public Light(String aname /*int r, int g, int b*/ ) {
         super(aname);
         //this.Color = new  Color(r, g, b);
-        this.Status = LightStatus.ON; 
+        this.Status = LightStatus.OFF; 
     }
     
     // Setter Methods
@@ -50,22 +50,26 @@ public abstract class Light extends Devices<LightStatus> implements Switchable, 
 
     @Override
     public void switchOn(){
-        System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + LightStatus.ON + " ");
+        this.Status = LightStatus.ON;
+        System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
     }
 
     @Override
     public void switchOff(){
-        System.out.print(getName() + " Light " + " Switch Off" + " Status: " + LightStatus.OFF + " ");
+        this.Status = LightStatus.OFF;
+        System.out.print(getName() + " Light " + " Switch Off" + " Status: " +  this.getStatus() + " ");
     }
 
     @Override
     public void dimUp(){
-        System.out.print(getName() + " Dim On " + " Status: " + LightStatus.DIMMED + " ");
+        this.Status = LightStatus.DIMMED;
+        System.out.print(getName() + " Dim On " + " Status: " + this.getStatus()  + " ");
     }
 
     @Override
     public void dimDown(){
-        System.out.print(getName() + " Dim Off " + " Status: " + LightStatus.DIMMED + " ");
+        this.Status = LightStatus.DIMMED;
+        System.out.print(getName() + " Dim Off " + " Status: " + this.getStatus()+ " ");
     }
 
         
