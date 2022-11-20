@@ -64,14 +64,13 @@ public class SmartHomeMainController extends Controller<Home>{
     @FXML
     private void deviceSelected(){
         Devices newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
-        System.out.println(newDevices);
+        //System.out.println(newDevices);
         this.lblStatus.setText(newDevices.getStatus().toString());
     }
 
     @FXML 
     private void btnCreateRoutineClick() throws IOException{
         MainApp.setScene("SmartHomeRoutine", this.model);
-
     }
 
 

@@ -49,9 +49,10 @@ public class SmartHomeRoutineController extends Controller<Home>{
             Command command = commands[i]; 
             Button commandButton = new Button(commandNames[i]); 
 
-            commandButton.setOnAction((e) ->{
+            commandButton.setOnAction((event) ->{
                 command.execute();
             });
+
             //this.hboxCommands.getChildren().add(commandButton); 
         }  
         this.lstCommands.getItems().addAll(commandNames); 
@@ -90,7 +91,7 @@ public class SmartHomeRoutineController extends Controller<Home>{
         for(int i =0; i < commands.length; i++){
             commands[i] = model.getCommand(lstRoutine.getItems().get(i)); 
         }
-        
+
         RoutineCommand routineCommand = new RoutineCommand(commands);
         model.addCommand(routineName, routineCommand);
 

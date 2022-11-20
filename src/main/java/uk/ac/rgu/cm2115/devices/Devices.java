@@ -25,7 +25,7 @@ public abstract class Devices <T>{
     // ToString Method 
     public final String toString(){
         String output = "";
-        output += getName() +" " + getClass().getSimpleName(); 
+        output += getName() + " " + getClass().getSimpleName(); 
         return output; 
     }
 
