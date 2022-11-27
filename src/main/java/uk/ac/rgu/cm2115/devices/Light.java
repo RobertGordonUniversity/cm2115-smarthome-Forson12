@@ -1,8 +1,10 @@
 package uk.ac.rgu.cm2115.devices;
 
+import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
+
 //import javafx.scene.paint.Color;
 
-public abstract class Light extends Devices<LightStatus> implements Switchable, Dimmable{
+public  class Light extends Devices<LightStatus> implements Switchable, Dimmable{
 
     // public Light(String aname) {
     //     super(aname);
@@ -115,6 +117,14 @@ public abstract class Light extends Devices<LightStatus> implements Switchable, 
         public void setB(int b) {
             this.b = b;
         }
+        
+    }
+
+
+    @Override
+    public final void accept(DeviceVisitor visitor) {
+        // TODO Auto-generated method stub
+        visitor.visit(this);
         
     }
 

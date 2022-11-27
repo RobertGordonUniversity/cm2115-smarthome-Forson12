@@ -1,6 +1,8 @@
 package uk.ac.rgu.cm2115.devices;
 
-public abstract class Thermostat extends Devices<TurnStatus> {
+import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
+
+public class Thermostat extends Devices<TurnStatus> {
 
     public String myTurn;
     //public TurnStatus status; 
@@ -19,6 +21,13 @@ public abstract class Thermostat extends Devices<TurnStatus> {
     public void turnOff(){
         this.Status = TurnStatus.OFF;
         System.out.println(getName() + " Is" + " Turned Off," + " Status: " + this.getStatus() + " ");
+    }
+
+
+    @Override
+    public final void accept(DeviceVisitor visitor) {
+        visitor.visit(this);
+        
     }
 
     // // Default Constructor method 

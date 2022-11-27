@@ -1,10 +1,15 @@
 package uk.ac.rgu.cm2115.devices;
 
+import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
+
 public abstract class Devices <T>{
     // lab 5
     protected T Status; 
 
     protected String name; 
+    
+    // Accept Method 
+    public abstract void accept(DeviceVisitor visitor);
 
     public Devices(String aname) {
         name = aname; 
@@ -28,6 +33,7 @@ public abstract class Devices <T>{
         output += getName() + " " + getClass().getSimpleName(); 
         return output; 
     }
+
 
 }
 

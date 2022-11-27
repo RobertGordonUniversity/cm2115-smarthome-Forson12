@@ -1,6 +1,8 @@
 package uk.ac.rgu.cm2115.devices;
 
-public abstract class SmartPlug extends Devices<LightStatus> implements Switchable{
+import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
+
+public  class SmartPlug extends Devices<LightStatus> implements Switchable{
     //Fields 
     //public String mySwitch;
     
@@ -27,6 +29,12 @@ public abstract class SmartPlug extends Devices<LightStatus> implements Switchab
     public void switchOff(){
         this.Status = LightStatus.OFF;
         System.out.print(getName() + " is " + " Switched Off, " + " Status: " + this.getStatus() + " ");
+    }
+
+    @Override
+    public final void accept(DeviceVisitor visitor) {
+        visitor.visit(this);
+        
     }
     
     // Default Constructor method 

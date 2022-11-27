@@ -9,21 +9,24 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 //import javafx.scene.effect.Light;
 import javafx.stage.Stage;
 import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
 import uk.ac.rgu.cm2115.devices.Home;
 import uk.ac.rgu.cm2115.devices.Light;
-import uk.ac.rgu.cm2115.devices.LightStatus;
+//import uk.ac.rgu.cm2115.devices.LightStatus;
 import uk.ac.rgu.cm2115.devices.SmartPlug;
-import uk.ac.rgu.cm2115.devices.Switchable;
+//import uk.ac.rgu.cm2115.devices.Switchable;
 //import uk.ac.rgu.cm2115.devices.Light.Color; 
 import uk.ac.rgu.cm2115.devices.Thermostat;
 import uk.ac.rgu.cm2115.devices.TurnStatus;
 import uk.ac.rgu.cm2115.devices.amazon.AmazonDeviceFactory;
 import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
+import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
+import uk.ac.rgu.cm2115.devices.diagnostics.ExtendedDiagnosticVisitor;
+import uk.ac.rgu.cm2115.devices.diagnostics.SimpleDiagnosticVisitor;
 
 /**
  * JavaFX App
@@ -133,6 +136,13 @@ public class MainApp extends Application {
         // home.addDevice(new SmartPlug("Kettle"));
         // home.addDevice(new Thermostat("Whole house"));
 
+
+        DeviceVisitor visitor = new ExtendedDiagnosticVisitor();
+        for(Devices d : home.getDevices()){
+            if(d != null){
+            d.accept(visitor);
+        }
+}
         setScene("SmartHomeMain", home);
 
     }
