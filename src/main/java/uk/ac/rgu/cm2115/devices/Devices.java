@@ -33,7 +33,15 @@ public abstract class Devices <T>{
         output += getName() + " " + getClass().getSimpleName(); 
         return output; 
     }
-
+    // the .equals methid 
+    @Override
+    public final boolean equals(Object other){
+        if(other != null && other.getClass().equals(this.getClass())){
+            Devices otherDevice = (Devices)other; 
+            return otherDevice.name.equals(this.name);
+        }
+        return false; 
+    }
 
 }
 

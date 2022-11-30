@@ -140,9 +140,9 @@ public class MainApp extends Application {
         DeviceVisitor visitor = new ExtendedDiagnosticVisitor();
         for(Devices d : home.getDevices()){
             if(d != null){
-            d.accept(visitor);
+                d.accept(visitor);
+            }
         }
-}
         setScene("SmartHomeMain", home);
 
     }

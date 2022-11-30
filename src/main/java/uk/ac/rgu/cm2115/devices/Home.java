@@ -1,5 +1,8 @@
 package uk.ac.rgu.cm2115.devices;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import uk.ac.rgu.cm2115.commands.Command;
 import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
 
@@ -8,7 +11,7 @@ import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
  * @author Mark Snaith
  */
 public class Home  {
-    public Devices[] devices; 
+    public List<Devices> devices = new ArrayList<>(); 
 
     private String[] commandNames = new String[10]; 
     private Command[] commands = new Command[10]; 
@@ -23,19 +26,20 @@ public class Home  {
     // }
 
     public Home(DeviceFactory factory){
-        devices = new Devices[4]; 
+        devices = new ArrayList<>(4); 
         this.factory = factory;
 
     }
 
     //addDevice Method 
     public void addDevice(Devices device){
-        for(int i=0; i<this.devices.length; i++){
-            if(devices[i] == null){
-                devices[i] = device; 
-                break; 
-            }
-        }
+        // for(int i=0; i<this.devices.size(); i++){
+        //     if(devices.get(i) == null){
+        //         devices.set(i, device); 
+        //         break; 
+        //     }
+        // }
+        devices.add(device);
 
     }
 
@@ -72,7 +76,7 @@ public class Home  {
 
 
     // getter Method 
-    public Devices[] getDevices(){
+    public List<Devices> getDevices(){
         return this.devices; 
     }
     public String[] getCommandNames() {
