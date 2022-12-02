@@ -30,6 +30,13 @@ public class Thermostat extends Devices<TurnStatus> {
         
     }
 
+
+    @Override
+    public int compareTo(Devices o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
     // // Default Constructor method 
     // public Thermostat(){
     //     myTurn = "not set"; 

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import uk.ac.rgu.cm2115.commands.Command;
+import uk.ac.rgu.cm2115.devices.Devices.DeviceComparator;
 import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
 
 /**
@@ -16,11 +18,12 @@ public class Home  {
     public List<Devices> devices = new ArrayList<>(); 
 
     //private String[] commandNames = new String[10]; 
-    Map<String, Command> commandNames = new HashMap<>();
+    //Map<String, Command> commandNames = new HashMap<>();
     //private Command[] commands = new Command[10]; 
     Map<String, Command> commands = new HashMap<>();
+    
 
-    private int numCommands = 0; 
+    //private int numCommands = 0; 
 
     /*Lab 6B field */
     private DeviceFactory factory; 
@@ -50,20 +53,22 @@ public class Home  {
 
     //AddCommand Method 
     public void addCommand(String name, Command command){
-        if (this.numCommands == 10){
-            return;
-        }
+        // if (this.numCommands == 10){
+        //     return;
+        // }
         //commandNames[this.numCommands] = name;
-        commandNames.get(name); 
+        //commandNames.get(name); 
         //commands[this.numCommands] = command; 
-        commands.get(command);  
-        this.numCommands++; 
+        commands.put(name, command);
+        
+
+        // this.numCommands++; 
     }
 
     // public getCommand method
     public Command getCommand(String name){
-        for(int i =0; i <this.commandNames.size(); i++){
-            if(this.commandNames.get(i).equals(name)){  //equalsIgnoreCase(name)
+        for(int i =0; i <this.commands.size(); i++){
+            if(this.commands.get(i).equals(name)){  //equalsIgnoreCase(name)
                 return this.commands.get(i); 
             }
         }
@@ -85,11 +90,13 @@ public class Home  {
     public List<Devices> getDevices(){
         return this.devices; 
     }
-    public Map<String, Command> getCommandNames() {
-        return commandNames;
-    }
+
+    public Set<String> getCommandNames() {
+        return commands.keySet(); 
+    } 
+    
     public Map<String, Command> getCommands() {
-        return commands;
+        return commands; 
     }
 
 

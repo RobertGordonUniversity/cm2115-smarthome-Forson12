@@ -27,13 +27,13 @@ public class SmartHomeRoutineController extends Controller<Home>{
     @FXML
     public void setModel(Home model){
         this.model = model; 
-        Map<String, Command> commands = model.getCommands();
+        Map<String, Command> commands = model.getCommands(); 
         commands.forEach((name, command) -> { 
             Button b = new Button(name); 
             b.setOnAction((e) -> command.execute());
             //this.hboxCommands.getChildren().add(b); 
         }); 
-        //this.lstCommands.getItems().addAll(model.getDevices()); 
+        this.lstCommands.getItems().addAll(this.model.getCommandNames()); 
     
 
         // Devices[] devices = model.getDevices();
@@ -88,9 +88,7 @@ public class SmartHomeRoutineController extends Controller<Home>{
     private void btnSaveRoutineClick() throws IOException{
         //Get text from text field
         String routineName = txtRoutineName.getText().toString();
-        //TODO: Check if null
         
-
         //Create Command array
         Command[] commands = new Command[lstRoutine.getItems().size()];
         //Iterate over items in lstRoutine

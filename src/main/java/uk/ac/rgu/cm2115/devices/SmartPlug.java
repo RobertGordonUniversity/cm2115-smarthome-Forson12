@@ -36,6 +36,12 @@ public  class SmartPlug extends Devices<LightStatus> implements Switchable{
         visitor.visit(this);
         
     }
+
+    @Override
+    public int compareTo(Devices o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
     
     // Default Constructor method 
     // public SmartPlug(){

@@ -1,6 +1,9 @@
 package uk.ac.rgu.cm2115;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import javafx.fxml.FXML;
@@ -13,6 +16,7 @@ import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
 import uk.ac.rgu.cm2115.devices.Home;
 //import uk.ac.rgu.cm2115.devices.LightStatus;
+import uk.ac.rgu.cm2115.devices.Devices.DeviceComparator;
 
 public class SmartHomeMainController extends Controller<Home>{
 
@@ -78,11 +82,20 @@ public class SmartHomeMainController extends Controller<Home>{
         Devices newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
         //System.out.println(newDevices);
         this.lblStatus.setText(newDevices.getStatus().toString());
+        System.out.println(this.lblStatus);
     }
 
     @FXML 
     private void btnCreateRoutineClick() throws IOException{
         MainApp.setScene("SmartHomeRoutine", this.model);
+    } 
+
+    @FXML 
+    private void btnSortDevicesClick() {
+        List<Devices<DeviceComparator>> sDevices = this.model.getDevices();
+        Collections.sort(sDevices); 
+        this.lstDevices.getItems().clear(); 
+        this.lstDevices.getItems().addAll(sDevices); 
     }
 
 

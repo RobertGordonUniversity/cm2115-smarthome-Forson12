@@ -5,12 +5,17 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rgu.cm2115.SmartHomeMainController">
    <children>
       <ListView fx:id="lstDevices" onMouseClicked="#deviceSelected" prefHeight="219.0" prefWidth="284.0" />
       <HBox fx:id="hboxCommands" layoutX="7.0" layoutY="219.0" prefHeight="100.0" prefWidth="591.0" />
-      <Label fx:id="lblStatus" layoutX="320.0" layoutY="51.0" prefHeight="47.0" prefWidth="136.0" text="Label" />
-      <Button fx:id="btnCreateRoutine" layoutX="320.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnCreateRoutineClick" prefHeight="39.0" prefWidth="136.0" text="Create New Routine" />
+      <Label fx:id="lblStatus" layoutX="302.0" layoutY="40.0" prefHeight="47.0" prefWidth="124.0" text="Label" textFill="#056cea">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button fx:id="btnCreateRoutine" layoutX="300.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnCreateRoutineClick" prefHeight="21.0" prefWidth="124.0" text="Create New Routine" />
+      <Button layoutX="300.0" layoutY="145.0" mnemonicParsing="false" onAction="#btnSortDevicesClick" prefHeight="26.0" prefWidth="132.0" text="Sort Devices by name" />
    </children>
 </AnchorPane>

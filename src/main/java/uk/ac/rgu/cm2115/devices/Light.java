@@ -128,6 +128,12 @@ public  class Light extends Devices<LightStatus> implements Switchable, Dimmable
         
     }
 
+    @Override
+    public int compareTo(Devices o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 
 
 
