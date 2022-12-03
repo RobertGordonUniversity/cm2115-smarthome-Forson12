@@ -8,6 +8,8 @@ import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import uk.ac.rgu.cm2115.commands.Command;
 import uk.ac.rgu.cm2115.commands.RoutineCommand;
@@ -103,7 +105,14 @@ public class SmartHomeRoutineController extends Controller<Home>{
         RoutineCommand routineCommand = new RoutineCommand(commands);
         model.addCommand(routineName, routineCommand);
 
-        MainApp.setScene("SmartHomeMain", this.model);
+        try {
+            MainApp.setScene("SmartHomeMain", this.model);
+        } catch (Exception e) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Cannot load SmartHomeMain");
+            a.show();
+
+        }
         
 
         // String textEntered = txtRoutineName.getText().toString();
@@ -132,5 +141,9 @@ public class SmartHomeRoutineController extends Controller<Home>{
         
         
     }
+
+    /*Implement a similar filtering system in the SmartHomeRoutine scene. This should filter the list of
+    commands that can be added to a routine */
+    
 
 }

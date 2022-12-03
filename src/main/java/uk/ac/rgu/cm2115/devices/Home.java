@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import uk.ac.rgu.cm2115.commands.Command;
+import uk.ac.rgu.cm2115.commands.CommandNotExistException;
 import uk.ac.rgu.cm2115.devices.Devices.DeviceComparator;
 import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
 
@@ -59,7 +62,7 @@ public class Home  {
         //commandNames[this.numCommands] = name;
         //commandNames.get(name); 
         //commands[this.numCommands] = command; 
-        commands.put(name, command);
+        commands.put(name.toLowerCase(), command);
         
 
         // this.numCommands++; 
@@ -67,21 +70,49 @@ public class Home  {
 
     // public getCommand method
     public Command getCommand(String name){
-        for(int i =0; i <this.commands.size(); i++){
-            if(this.commands.get(i).equals(name)){  //equalsIgnoreCase(name)
-                return this.commands.get(i); 
+
+        Command command = this.commands.get(name.toLowerCase()); 
+
+        if(command == null){
+            throw new CommandNotExistException("Command " + name + " does not exist");
+        }else{
+            for(int i =0; i <this.commands.size(); i++){
+                if(this.commands.get(i).equals(name)){  //equalsIgnoreCase(name)
+                    return this.commands.get(i); 
+                }
             }
         }
-        return null; 
+        return command; 
     }
 
     // public runCommand
-    public void runCommand(String name){
-        Command command = this.getCommand(name);
+    public Command runCommand(String name){
+        Command command = this.getCommand(name.toLowerCase());
 
-        if(command != null){
+        // if(command != null){
+        //     command.execute();
+        // }
+        if (command == null){
+            throw new CommandNotExistException("Command "+name+" does not exist");
+        }else{
             command.execute();
         }
+
+        return command;
+
+        // if(command != null){
+        //     try{
+        //         command.execute();
+        //     }catch(CommandNotExistException ex){
+        //         Alert a = new Alert(AlertType.ERROR);
+        //         a.setContentText(ex.getMessage());
+        //         a.show();
+        //     }
+
+        // }
+
+        // return command;
+
     }
 
 

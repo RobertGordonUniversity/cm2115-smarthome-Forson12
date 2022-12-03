@@ -9,6 +9,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 //import javafx.scene.paint.Color;
 //import javafx.scene.effect.Light;
 import javafx.stage.Stage;
@@ -99,66 +101,74 @@ public class MainApp extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("SmartHomeMain"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
-
-        /*Lab 6 B Abstract Factory */
-        DeviceFactory factory = new AmazonDeviceFactory(); 
-        Home home = new Home(factory); 
-        
-        Light light = home.addLight("Living Room"); 
-        SmartPlug plug = home.addSmartPlug("Kettle");
-        Thermostat thrm = home.addThermostat("Whole house"); 
-
-        home.addCommand("Switch on Light", light :: switchOn);
-        home.addCommand("Switch on Kettle", plug :: switchOn);
-        home.addCommand("Switch off Thermostat", thrm :: turnOff);
-
-        /*LAB 6 A */
-        // Light light = new Light("Living Room");
-        // SmartPlug plug = new SmartPlug("Kettle");
-        // Thermostat thrm = new Thermostat("Whole house");
-
-        // home.addDevice(light);
-        // home.addDevice(plug);
-        // home.addDevice(thrm);
-
-        // home.addCommand("Switch on light", light::switchOn);
-        // home.addCommand("Switch on kettle", plug::switchUp);
-        // home.addCommand("Turn up thermostat", thrm::turnUp);
-
-        //home.runCommand("Switch on Light");
-        
-        // for Lab 3 (Add the various devices to listview)
-        // home.addDevice(new Light("Living room", 255,0,0));
-        // home.addDevice(new SmartPlug("Kettle"));
-        // home.addDevice(new Thermostat("Whole house"));
-
-
-        DeviceVisitor visitor = new ExtendedDiagnosticVisitor();
-        for(Devices<?> d : home.getDevices()){
-            if(d != null){
-                d.accept(visitor);
+    public void start(Stage stage) {
+        try {
+            scene = new Scene(loadFXML("SmartHomeMain"), 640, 480);
+            stage.setScene(scene);
+            stage.show();
+    
+            /*Lab 6 B Abstract Factory */
+            DeviceFactory factory = new AmazonDeviceFactory(); 
+            Home home = new Home(factory); 
+            
+            Light light = home.addLight("Living Room"); 
+            SmartPlug plug = home.addSmartPlug("Kettle");
+            Thermostat thrm = home.addThermostat("Whole house"); 
+    
+            home.addCommand("Switch on Light", light :: switchOn);
+            home.addCommand("Switch on Kettle", plug :: switchOn);
+            home.addCommand("Switch off Thermostat", thrm :: turnOff);
+    
+            /*LAB 6 A */
+            // Light light = new Light("Living Room");
+            // SmartPlug plug = new SmartPlug("Kettle");
+            // Thermostat thrm = new Thermostat("Whole house");
+    
+            // home.addDevice(light);
+            // home.addDevice(plug);
+            // home.addDevice(thrm);
+    
+            // home.addCommand("Switch on light", light::switchOn);
+            // home.addCommand("Switch on kettle", plug::switchUp);
+            // home.addCommand("Turn up thermostat", thrm::turnUp);
+    
+            //home.runCommand("Switch on Light");
+            
+            // for Lab 3 (Add the various devices to listview)
+            // home.addDevice(new Light("Living room", 255,0,0));
+            // home.addDevice(new SmartPlug("Kettle"));
+            // home.addDevice(new Thermostat("Whole house"));
+    
+    
+            DeviceVisitor visitor = new ExtendedDiagnosticVisitor();
+            for(Devices<?> d : home.getDevices()){
+                if(d != null){
+                    d.accept(visitor);
+                }
             }
-        }
 
-        setScene("SmartHomeMain", home);
+            setScene("SmartHomeMain", home);
+            
+        } catch (Exception e) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Cannot load SmartHomeMain");
+            a.show();
+
+        }
 
     }
 
-    static void setRoot(String fxml) throws IOException {
+    static void setRoot(String fxml) throws Exception {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    private static Parent loadFXML(String fxml) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
     
-    public static <T> void setScene(String fxml, T model) throws IOException{
+    public static <T> void setScene(String fxml, T model) throws Exception{
 
         if(fxml.endsWith(".fxml")){
             fxml = fxml.replace(".fxml","");

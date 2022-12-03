@@ -8,12 +8,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 import uk.ac.rgu.cm2115.commands.Command;
+import uk.ac.rgu.cm2115.commands.CommandNotExistException;
 import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
 import uk.ac.rgu.cm2115.devices.Home;
@@ -37,6 +40,8 @@ public class SmartHomeMainController extends Controller<Home>{
     private Button btnDevicesByType; 
     @FXML
     private TextField txtFilterDevices; 
+    @FXML
+    private TextField txtCommandName; 
 
     //setModel(); 
     @FXML
@@ -45,12 +50,12 @@ public class SmartHomeMainController extends Controller<Home>{
         this.lstDevices.getItems().addAll(model.getDevices());
 
         Map<String, Command> commands = model.getCommands();
-        commands.forEach((name, command) -> { 
-            //System.out.println("Processing");
-            Button b = new Button(name); 
-            b.setOnAction((e) -> command.execute());
-            this.hboxCommands.getChildren().add(b); 
-        }); 
+        // commands.forEach((name, command) -> { 
+        //     //System.out.println("Processing");
+        //     Button b = new Button(name); 
+        //     b.setOnAction((e) -> command.execute());
+        //     this.hboxCommands.getChildren().add(b); 
+        // }); 
 
         
         /*Before LAb 7 */
@@ -95,7 +100,16 @@ public class SmartHomeMainController extends Controller<Home>{
 
     @FXML 
     private void btnCreateRoutineClick() throws IOException{
-        MainApp.setScene("SmartHomeRoutine", this.model);
+        try {
+            MainApp.setScene("SmartHomeRoutine", this.model);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Cannot load SmartHomeMain");
+            a.show();
+
+        }
     } 
     /*Sort By name */
     @FXML 
@@ -125,7 +139,7 @@ public class SmartHomeMainController extends Controller<Home>{
         this.lstDevices.getItems().clear();
         List<Devices<?>> devices = this.model.getDevices();
         if(text == null || text.equals("")){
-        this.lstDevices.getItems().addAll(devices);
+            this.lstDevices.getItems().addAll(devices);
         }
         else{
             List<Devices<?>> filtered = devices.stream().filter((d) -> {
@@ -136,7 +150,21 @@ public class SmartHomeMainController extends Controller<Home>{
         this.lstDevices.getItems().addAll(filtered);
         }
     }
+    @FXML
+    private void btnRunCommandClick(){
+        String text = this.txtCommandName.getText();
+        if(text != null){
+            try{
+                Command command = this.model.getCommand(text);
+                command.execute();
+            }catch(CommandNotExistException ex){
+                Alert a = new Alert(AlertType.ERROR);
+                a.setContentText(ex.getMessage());
+                a.show();
+            }
+        }
 
+    }
 
 
 }
