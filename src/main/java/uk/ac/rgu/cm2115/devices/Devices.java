@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
 
-public abstract class Devices<T> implements Comparable <Devices>{
+public abstract class Devices<T> implements Comparable<Devices<?>>{
     // lab 5
     protected T Status; 
 
@@ -39,24 +39,39 @@ public abstract class Devices<T> implements Comparable <Devices>{
     @Override
     public final boolean equals(Object other){
         if(other != null && other.getClass().equals(this.getClass())){
-            Devices otherDevice = (Devices)other; 
+            Devices<?> otherDevice = (Devices<?>)other; 
             return otherDevice.name.equals(this.name);
         }
         return false; 
     }
 
-    //Implementing a Comparator method 
-    public static class DeviceComparator implements Comparator<Devices>{
+    @Override
+    public int compareTo(Devices<?> o) {
+        // TODO Auto-generated method stub
+        if (name.compareToIgnoreCase(o.name) == -1){
+            return -1;
+        } else if(name.compareToIgnoreCase(o.name) == 0){
+            return 0;  
+        }else{
+            return 1;
+        }
+        
+    }
 
+    
+
+    //Implementing a Comparator method 
+    public static class DeviceComparator implements Comparator<Devices<?>>{
         @Override
-        public int compare(Devices o1, Devices o2) {
+        public int compare(Devices<?> o1, Devices<?> o2) {
             // TODO Auto-generated method stub
-            if(o1.getClass().getSimpleName().charAt(0) < o2.getClass().getSimpleName().charAt(0)){
-                return -1; 
-            }else if (o1.getClass().getSimpleName().charAt(0) > o2.getClass().getSimpleName().charAt(0)){
-                return 1;
+            if (o1.getClass().getSimpleName().compareToIgnoreCase(o2.getClass().getSimpleName()) == -1){
+                return -1;
+            }
+            else if(o1.getClass().getSimpleName().compareToIgnoreCase(o2.getClass().getSimpleName()) == 0){
+                return 0; 
             }else {
-                return 0;
+                return 1;
             }
             
         }

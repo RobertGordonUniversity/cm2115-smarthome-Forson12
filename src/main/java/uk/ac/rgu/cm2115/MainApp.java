@@ -21,12 +21,12 @@ import uk.ac.rgu.cm2115.devices.SmartPlug;
 //import uk.ac.rgu.cm2115.devices.Switchable;
 //import uk.ac.rgu.cm2115.devices.Light.Color; 
 import uk.ac.rgu.cm2115.devices.Thermostat;
-import uk.ac.rgu.cm2115.devices.TurnStatus;
+//import uk.ac.rgu.cm2115.devices.TurnStatus;
 import uk.ac.rgu.cm2115.devices.amazon.AmazonDeviceFactory;
 import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
 import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
 import uk.ac.rgu.cm2115.devices.diagnostics.ExtendedDiagnosticVisitor;
-import uk.ac.rgu.cm2115.devices.diagnostics.SimpleDiagnosticVisitor;
+//import uk.ac.rgu.cm2115.devices.diagnostics.SimpleDiagnosticVisitor;
 
 /**
  * JavaFX App
@@ -138,11 +138,12 @@ public class MainApp extends Application {
 
 
         DeviceVisitor visitor = new ExtendedDiagnosticVisitor();
-        for(Devices d : home.getDevices()){
+        for(Devices<?> d : home.getDevices()){
             if(d != null){
                 d.accept(visitor);
             }
         }
+
         setScene("SmartHomeMain", home);
 
     }

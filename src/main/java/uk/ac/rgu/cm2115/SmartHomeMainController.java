@@ -5,23 +5,25 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import uk.ac.rgu.cm2115.commands.Command;
 import uk.ac.rgu.cm2115.devices.Controller;
 import uk.ac.rgu.cm2115.devices.Devices;
 import uk.ac.rgu.cm2115.devices.Home;
 //import uk.ac.rgu.cm2115.devices.LightStatus;
-import uk.ac.rgu.cm2115.devices.Devices.DeviceComparator;
+//import uk.ac.rgu.cm2115.devices.Devices.DeviceComparator;
 
 public class SmartHomeMainController extends Controller<Home>{
 
     @FXML
-    private ListView <Devices> lstDevices;
+    private ListView <Devices<?>> lstDevices;
 
     @FXML
     private Label lblStatus;
@@ -29,6 +31,12 @@ public class SmartHomeMainController extends Controller<Home>{
     private HBox hboxCommands; 
     @FXML 
     private Button btnCreateRoutine; 
+    @FXML 
+    private Button btnSortDevicesClick; 
+    @FXML
+    private Button btnDevicesByType; 
+    @FXML
+    private TextField txtFilterDevices; 
 
     //setModel(); 
     @FXML
@@ -79,7 +87,7 @@ public class SmartHomeMainController extends Controller<Home>{
 
     @FXML
     private void deviceSelected(){
-        Devices newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
+        Devices<?> newDevices = this.lstDevices.getSelectionModel().getSelectedItem();
         //System.out.println(newDevices);
         this.lblStatus.setText(newDevices.getStatus().toString());
         System.out.println(this.lblStatus);
@@ -89,14 +97,46 @@ public class SmartHomeMainController extends Controller<Home>{
     private void btnCreateRoutineClick() throws IOException{
         MainApp.setScene("SmartHomeRoutine", this.model);
     } 
-
+    /*Sort By name */
     @FXML 
     private void btnSortDevicesClick() {
-        List<Devices<DeviceComparator>> sDevices = this.model.getDevices();
+        List<Devices<?>> sDevices = this.model.getDevices();
         Collections.sort(sDevices); 
         this.lstDevices.getItems().clear(); 
         this.lstDevices.getItems().addAll(sDevices); 
     }
+    /*Sort By Type */
+    @FXML
+    public void btnDevicesByType(){
+        List<Devices<?>> sDevices = this.model.getDevices();
+        sDevices.sort(new Devices.DeviceComparator());
+        this.lstDevices.getItems().clear(); 
+        this.lstDevices.getItems().addAll(sDevices); 
+        //System.out.println(sDevices.toString());
+
+    }
+    /*Filtering */
+    /*This code gets the text from the filter box, then clears all items from the ListView. If there’s no
+    text, we restore the full list; if there is text, we use a stream and lambda expression to filter the
+    list based on the entered text */
+    @FXML
+    public void txtFilterDevicesOnChange(){
+        String text = this.txtFilterDevices.getText();
+        this.lstDevices.getItems().clear();
+        List<Devices<?>> devices = this.model.getDevices();
+        if(text == null || text.equals("")){
+        this.lstDevices.getItems().addAll(devices);
+        }
+        else{
+            List<Devices<?>> filtered = devices.stream().filter((d) -> {
+                String name = d.getName().toLowerCase();
+                String search = text.toLowerCase();
+                return name.startsWith(search);
+            }).collect(Collectors.toList());
+        this.lstDevices.getItems().addAll(filtered);
+        }
+    }
+
 
 
 }

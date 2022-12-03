@@ -15,7 +15,7 @@ import uk.ac.rgu.cm2115.devices.amazon.DeviceFactory;
  * @author Mark Snaith
  */
 public class Home  {
-    public List<Devices> devices = new ArrayList<>(); 
+    public List<Devices<?>> devices = new ArrayList<>(); 
 
     //private String[] commandNames = new String[10]; 
     //Map<String, Command> commandNames = new HashMap<>();
@@ -40,7 +40,7 @@ public class Home  {
     }
 
     //addDevice Method 
-    public void addDevice(Devices device){
+    public void addDevice(Devices<?> device){
         // for(int i=0; i<this.devices.size(); i++){
         //     if(devices.get(i) == null){
         //         devices.set(i, device); 
@@ -87,7 +87,7 @@ public class Home  {
 
 
     // getter Method 
-    public List<Devices> getDevices(){
+    public List<Devices<?>> getDevices(){
         return this.devices; 
     }
 
