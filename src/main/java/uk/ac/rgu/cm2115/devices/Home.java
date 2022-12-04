@@ -69,50 +69,35 @@ public class Home  {
     }
 
     // public getCommand method
-    public Command getCommand(String name){
+    public Command getCommand(String name) throws CommandNotExistException{
 
         Command command = this.commands.get(name.toLowerCase()); 
+        //System.out.println(command.toString());
 
-        if(command == null){
-            throw new CommandNotExistException("Command " + name + " does not exist");
-        }else{
-            for(int i =0; i <this.commands.size(); i++){
-                if(this.commands.get(i).equals(name)){  //equalsIgnoreCase(name)
-                    return this.commands.get(i); 
-                }
-            }
+        if (command == null){
+             throw new CommandNotExistException("Command " + name + " does not exist");
         }
+        // else{
+        //     for(int i =0; i <this.commands.size(); i++){
+        //         if(this.commands.get(i).equals(name)){  //equalsIgnoreCase(name)
+        //             return this.commands.get(i); 
+        //         }
+        //     }
+        // }
         return command; 
     }
+    
 
     // public runCommand
-    public Command runCommand(String name){
+    public Command runCommand(String name) throws CommandNotExistException{
         Command command = this.getCommand(name.toLowerCase());
 
-        // if(command != null){
-        //     command.execute();
-        // }
-        if (command == null){
-            throw new CommandNotExistException("Command "+name+" does not exist");
-        }else{
+        if(command != null){
             command.execute();
+            //System.out.println(command.toString());
         }
 
         return command;
-
-        // if(command != null){
-        //     try{
-        //         command.execute();
-        //     }catch(CommandNotExistException ex){
-        //         Alert a = new Alert(AlertType.ERROR);
-        //         a.setContentText(ex.getMessage());
-        //         a.show();
-        //     }
-
-        // }
-
-        // return command;
-
     }
 
 

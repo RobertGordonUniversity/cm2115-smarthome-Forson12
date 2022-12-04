@@ -48,8 +48,9 @@ public class SmartHomeMainController extends Controller<Home>{
     public void setModel(Home model){
         this.model = model; 
         this.lstDevices.getItems().addAll(model.getDevices());
+        //System.out.println(this.model.toString());
 
-        Map<String, Command> commands = model.getCommands();
+        //Map<String, Command> commands = model.getCommands();
         // commands.forEach((name, command) -> { 
         //     //System.out.println("Processing");
         //     Button b = new Button(name); 
@@ -150,12 +151,13 @@ public class SmartHomeMainController extends Controller<Home>{
         this.lstDevices.getItems().addAll(filtered);
         }
     }
+    /*Run Commands button*/
     @FXML
     private void btnRunCommandClick(){
         String text = this.txtCommandName.getText();
         if(text != null){
             try{
-                Command command = this.model.getCommand(text);
+                Command command = this.model.getCommand(text);  
                 command.execute();
             }catch(CommandNotExistException ex){
                 Alert a = new Alert(AlertType.ERROR);
@@ -163,8 +165,8 @@ public class SmartHomeMainController extends Controller<Home>{
                 a.show();
             }
         }
-
     }
+
 
 
 }

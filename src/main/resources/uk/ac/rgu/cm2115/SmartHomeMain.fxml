@@ -19,6 +19,8 @@
       <Button fx:id="btnCreateRoutine" layoutX="300.0" layoutY="98.0" mnemonicParsing="false" onAction="#btnCreateRoutineClick" prefHeight="21.0" prefWidth="124.0" text="Create New Routine" />
       <Button fx:id="btnSortDevicesClick" layoutX="300.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnSortDevicesClick" prefHeight="26.0" prefWidth="132.0" text="Sort Devices by name" />
       <Button fx:id="btnDevicesByType" layoutX="300.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnDevicesByType" prefHeight="26.0" prefWidth="132.0" text="Sort Devices by Type" />
-      <TextField fx:id="txtFilterDevices" layoutX="7.0" layoutY="227.0" onKeyTyped="#txtFilterDevicesOnChange" prefHeight="38.0" prefWidth="191.0" promptText="Filter Devices" />
+      <TextField fx:id="txtFilterDevices" layoutX="7.0" layoutY="231.0" onKeyTyped="#txtFilterDevicesOnChange" prefHeight="33.0" prefWidth="191.0" promptText="Filter Devices" />
+      <TextField fx:id="txtCommandName" layoutX="210.0" layoutY="230.0" prefHeight="34.0" prefWidth="150.0" promptText="Enter Command" />
+      <Button layoutX="386.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnRunCommandClick" prefHeight="34.0" prefWidth="102.0" text="Run Command" />
    </children>
 </AnchorPane>

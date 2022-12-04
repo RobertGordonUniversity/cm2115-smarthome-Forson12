@@ -1,5 +1,6 @@
 package uk.ac.rgu.cm2115.devices.amazon;
 
+import uk.ac.rgu.cm2115.devices.DeviceLogger;
 import uk.ac.rgu.cm2115.devices.Light;
 //import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
 

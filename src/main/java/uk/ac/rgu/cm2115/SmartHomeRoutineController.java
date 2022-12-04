@@ -87,7 +87,7 @@ public class SmartHomeRoutineController extends Controller<Home>{
     }
 
     @FXML
-    private void btnSaveRoutineClick() throws IOException{
+    private void btnSaveRoutineClick() throws Exception{
         //Get text from text field
         String routineName = txtRoutineName.getText().toString();
         
