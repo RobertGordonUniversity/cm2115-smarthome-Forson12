@@ -3,7 +3,7 @@ package uk.ac.rgu.cm2115;
 //import uk.ac.rgu.Light;
 //import uk.ac.rgu.SmartApp;
 
-import java.io.IOException;
+//import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

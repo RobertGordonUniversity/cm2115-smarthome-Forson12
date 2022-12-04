@@ -56,25 +56,28 @@ public  class Light extends Devices<LightStatus> implements Switchable, Dimmable
     public void switchOn(){
         this.Status = LightStatus.ON;
         //System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
-        logger.log(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
+        log(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
     }
 
     @Override
     public void switchOff(){
         this.Status = LightStatus.OFF;
-        System.out.print(getName() + " Light " + " Switch Off" + " Status: " +  this.getStatus() + " ");
+        //System.out.print(getName() + " Light " + " Switch Off" + " Status: " +  this.getStatus() + " ");
+        log(getName() + " Light " + " Switch Off" + " Status: " +  this.getStatus() + " ");
     }
 
     @Override
     public void dimUp(){
         this.Status = LightStatus.DIMMED;
-        System.out.print(getName() + " Dim On " + " Status: " + this.getStatus()  + " ");
+        //System.out.print(getName() + " Dim On " + " Status: " + this.getStatus()  + " ");
+        log(getName() + " Dim On " + " Status: " + this.getStatus()  + " ");
     }
 
     @Override
     public void dimDown(){
         this.Status = LightStatus.DIMMED;
-        System.out.print(getName() + " Dim Off " + " Status: " + this.getStatus()+ " ");
+        //System.out.print(getName() + " Dim Off " + " Status: " + this.getStatus()+ " ");
+        log(getName() + " Dim Off " + " Status: " + this.getStatus()+ " ");
     }
 
         

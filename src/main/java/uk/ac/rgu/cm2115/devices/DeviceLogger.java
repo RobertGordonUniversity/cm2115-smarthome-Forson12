@@ -26,7 +26,7 @@ public class DeviceLogger {
     public void log(String input){
         try(FileWriter fw = new FileWriter(fileName, true); BufferedWriter bw = new BufferedWriter(fw)){
             fw.append(input); 
-            bw.write("This is a message \n");
+            //bw.write("This is a message \n");
             // bw.write("this is another message \n");
             bw.close();
             fw.close();

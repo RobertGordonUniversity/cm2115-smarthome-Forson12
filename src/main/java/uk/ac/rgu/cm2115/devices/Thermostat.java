@@ -15,12 +15,14 @@ public class Thermostat extends Devices<TurnStatus> {
 
     public void turnOn(){
         this.Status = TurnStatus.ON;
-        System.out.println(getName() + " Is" + " Turned On, " + " Status: " + this.getStatus() + " ");
+        //System.out.println(getName() + " Is" + " Turned On, " + " Status: " + this.getStatus() + " ");
+        log(getName() + " Is" + " Turned On, " + " Status: " + this.getStatus() + " ");
     }
 
     public void turnOff(){
         this.Status = TurnStatus.OFF;
-        System.out.println(getName() + " Is" + " Turned Off," + " Status: " + this.getStatus() + " ");
+        //System.out.println(getName() + " Is" + " Turned Off," + " Status: " + this.getStatus() + " ");
+        log(getName() + " Is" + " Turned Off," + " Status: " + this.getStatus() + " ");
     }
 
 
