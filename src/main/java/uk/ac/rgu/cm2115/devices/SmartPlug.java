@@ -22,7 +22,7 @@ public  class SmartPlug extends Devices<LightStatus> implements Switchable{
     @Override
     public void switchOn(){
         this.Status = LightStatus.ON;
-        System.out.print(getName() + " is " + " Switched On," + " Status: " + this.getStatus() + " ");
+        System.out.print(getName() + " is " + " Switched On," + " Status: " + this.getStatus() + " " + " has a ");
     }
     
     @Override

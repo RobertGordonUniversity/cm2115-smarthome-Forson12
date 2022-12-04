@@ -1,5 +1,7 @@
 package uk.ac.rgu.cm2115.devices;
 
+import java.lang.System.Logger;
+
 import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
 
 //import javafx.scene.paint.Color;
@@ -17,7 +19,7 @@ public  class Light extends Devices<LightStatus> implements Switchable, Dimmable
 
     
     //Color constructor 
-    public Light(String aname /*int r, int g, int b*/ ) {
+    public Light(String aname) {
         super(aname);
         //this.Color = new  Color(r, g, b);
         this.Status = LightStatus.OFF; 
@@ -53,7 +55,8 @@ public  class Light extends Devices<LightStatus> implements Switchable, Dimmable
     @Override
     public void switchOn(){
         this.Status = LightStatus.ON;
-        System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
+        //System.out.print(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
+        logger.log(getName() + " Light " + " is Switch On, " + " Status: " + this.getStatus() + " ");
     }
 
     @Override
