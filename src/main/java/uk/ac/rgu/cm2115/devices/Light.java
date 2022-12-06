@@ -1,7 +1,5 @@
 package uk.ac.rgu.cm2115.devices;
 
-import java.lang.System.Logger;
-
 import uk.ac.rgu.cm2115.devices.diagnostics.DeviceVisitor;
 
 //import javafx.scene.paint.Color;

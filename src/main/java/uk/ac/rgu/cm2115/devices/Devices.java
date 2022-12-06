@@ -40,9 +40,6 @@ public abstract class Devices<T> implements Comparable<Devices<?>>{
     }
 
     
-
-
-    
     // ToString Method 
     public final String toString(){
         String output = "";
